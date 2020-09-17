@@ -1,13 +1,14 @@
 .number {
   box-sizing: border-box;
+
   position: relative;
-  width: 100%;
+  max-width: 500px;
+
+  margin: 0 auto;
+
   border: 1px solid #ccc;
   border-radius: 20px;
   overflow-x: hidden;
-
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .number:hover {
@@ -17,12 +18,12 @@
 .number__input {
   box-sizing: border-box;
   width: 100%;
-  padding: 0;
+
   margin: 0;
+  padding: 20px 25px;
   border: none;
 
-  padding: 20px 25px;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 20px;
   text-align: center;
   font-weight: bold;
