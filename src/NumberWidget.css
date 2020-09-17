@@ -1,66 +1,74 @@
-html {
-  height: 100%;
+.number {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  overflow-x: hidden;
 }
 
-body {
-  height: 100%;
-  min-height: 100%;
+.number:hover {
+  border: 1px solid #aaa;
 }
 
-#root {
-  height: 100%;
-  min-height: 100%;
-}
+.number__input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
 
-
-.App {
+  padding: 20px 25px;
+  font-size: 26px;
+  line-height: 20px;
   text-align: center;
-  display: grid;
-  min-height: 100%;
-  grid-template-rows: 100px 1fr;
+  font-weight: bold;
+
+  outline: none;
+
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-.App-logo {
-  height: 100px;
-  pointer-events: none;
+.number__input::-webkit-outer-spin-button,
+.number__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.number__input[type=number] {
+  -moz-appearance: textfield;
 }
 
-.App-header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.number__button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+
+  width: 100px;
+
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
 }
 
-.App-content {
-  background: #ccc;
-  display: grid;
-
-  grid-template-columns: 300px 1fr;
+.number__button:hover,
+.number__button:focus {
+  opacity: 0.6;
 }
 
-.App-config {
-  background: #bbb;
+.number__button:active {
+  opacity: 0.3;
 }
 
-.App-link {
-  color: #61dafb;
+.number__button--minus {
+  left: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.number__button--plus {
+  left: auto;
+  right: 0;
 }
