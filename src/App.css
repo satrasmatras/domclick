@@ -12,7 +12,6 @@ body {
   min-height: 100%;
 }
 
-
 .App {
   text-align: center;
   display: grid;
@@ -42,14 +41,14 @@ body {
 }
 
 .App-content {
-  background: #ccc;
+  background: #eee;
   display: grid;
 
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 400px 1fr;
 }
 
 .App-config {
-  background: #bbb;
+  background: #ddd;
   padding: 0 30px;
 }
 

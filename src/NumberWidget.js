@@ -16,20 +16,22 @@ export default class NumberWidget extends React.Component {
         const {minValue, maxValue} = this.props;
         return minValue <= val && maxValue >= val;
     }
+
     onValueChange(e) {
         const newVal = parseInt(e.target.value);
         if (this.isValid(newVal)) {
             this.props.handleChange(newVal);
         }
     }
+
     onButtonClick(newVal) {
         if (this.isValid(newVal)) {
             this.props.handleChange(newVal);
         }
     }
 
-    onWheel(e) {
-    }
+    onWheel(e) {}
+
     render() {
         const {currentValue} = this.props;
 
