@@ -1,84 +1,77 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import NumberWidget from './NumberWidget'
 
-export class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentValue: 10,
-      minValue: 0,
-      maxValue: 20
-    };
+export function App() {
+  const [currentValue, setCurrentValue] = useState(10);
+  const [minValue, setMinValue] = useState(0);
+  const [maxValue, setMaxValue] = useState(20);
+
+  function handleChange(newVal) {
+    setCurrentValue(newVal);
   }
 
-  handleChange = (newVal) => {
-    this.setState({currentValue: newVal});
-  };
-
-  handleMinValChange = (newVal) => {
-    if (newVal <= this.state.currentValue) {
-      this.setState({minValue: newVal});
+  function handleMinValChange(newVal) {
+    if (newVal <= currentValue) {
+      setMinValue(newVal);
     }
-  };
+  }
 
-  handleMaxValChange = (newVal) => {
-    if (newVal >= this.state.currentValue) {
-      this.setState({maxValue: newVal});
+  function handleMaxValChange(newVal) {
+    if (newVal >= currentValue) {
+      setMaxValue(newVal);
     }
-  };
+  }
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-        </header>
-        <main className="App-content">
-          <div className="App-config">
-            <h2>Widget Config</h2>
-            <div>
-              <h3>Current Value</h3>
-              <NumberWidget
-                currentValue={this.state.currentValue}
-                minValue={this.state.minValue}
-                maxValue={this.state.maxValue}
-                handleChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <h3>Min Value</h3>
-              <NumberWidget
-                currentValue={this.state.minValue}
-                minValue={-5}
-                maxValue={20}
-                handleChange={this.handleMinValChange}
-              />
-            </div>
-            <div>
-              <h3>Max Value</h3>
-              <NumberWidget
-                currentValue={this.state.maxValue}
-                minValue={20}
-                maxValue={50}
-                handleChange={this.handleMaxValChange}
-              />
-            </div>
-          </div>
-          <div className="App-demonstration">
-            <h2>Widget</h2>
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo"/>
+      </header>
+      <main className="App-content">
+        <div className="App-config">
+          <h2>Widget Config</h2>
+          <div>
+            <h3>Current Value</h3>
             <NumberWidget
-              currentValue={this.state.currentValue}
-              minValue={this.state.minValue}
-              maxValue={this.state.maxValue}
-              handleChange={this.handleChange}
+              currentValue={currentValue}
+              minValue={minValue}
+              maxValue={maxValue}
+              handleChange={handleChange}
             />
           </div>
-        </main>
-      </div>
-    )
-  }
+          <div>
+            <h3>Min Value</h3>
+            <NumberWidget
+              currentValue={minValue}
+              minValue={-5}
+              maxValue={20}
+              handleChange={handleMinValChange}
+            />
+          </div>
+          <div>
+            <h3>Max Value</h3>
+            <NumberWidget
+              currentValue={maxValue}
+              minValue={20}
+              maxValue={50}
+              handleChange={handleMaxValChange}
+            />
+          </div>
+        </div>
+        <div className="App-demonstration">
+          <h2>Widget</h2>
+          <NumberWidget
+            currentValue={currentValue}
+            minValue={minValue}
+            maxValue={maxValue}
+            handleChange={handleChange}
+          />
+        </div>
+      </main>
+    </div>
+  )
 }
 
 export default App;
