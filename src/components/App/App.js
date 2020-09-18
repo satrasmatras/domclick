@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
+import logo from '../../img/logo.svg';
 import './App.css';
-import NumberWidget from './NumberWidget'
+import NumberWidget from '../NumberWidget/NumberWidget'
 
 export function App() {
   const [currentValue, setCurrentValue] = useState(10);

@@ -1,12 +1,11 @@
-import React from "react";
-import PlusIcon from './img/qty-plus-icon.svg'
-import MinusIcon from './img/qty-minus-icon.svg'
+import React from 'react';
+import PlusIcon from '../../img/qty-plus-icon.svg'
+import MinusIcon from '../../img/qty-minus-icon.svg'
 import './NumberWidget.css';
 
-export default function NumberWidget(props)
-{
-  const {currentValue, handleChange, minValue, maxValue} = props;
-
+export default function NumberWidget(
+  {currentValue, handleChange, minValue, maxValue}
+) {
   function isValid(val) {
     return minValue <= val && maxValue >= val;
   }
@@ -24,7 +23,8 @@ export default function NumberWidget(props)
     }
   }
 
-  function onWheel() {}
+  function onWheel() {
+  }
 
   return (
     <div className="number">
